@@ -1,0 +1,201 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 600px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+        #loadingBar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 100%;
+            height: 600px;
+            background-color:rgba(200,200,200,0.8);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+
+        #bar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:20px;
+            height:20px;
+            margin:auto auto auto auto;
+            border-radius:11px;
+            border:2px solid rgba(30,30,30,0.05);
+            background: rgb(0, 173, 246); /* Old browsers */
+            box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+        }
+
+        #border {
+            position:absolute;
+            top:10px;
+            left:10px;
+            width:500px;
+            height:23px;
+            margin:auto auto auto auto;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            border-radius:10px;
+        }
+
+        #text {
+            position:absolute;
+            top:8px;
+            left:530px;
+            width:30px;
+            height:50px;
+            margin:auto auto auto auto;
+            font-size:22px;
+            color: #000000;
+        }
+
+        div.outerBorder {
+            position:relative;
+            top:400px;
+            width:600px;
+            height:44px;
+            margin:auto auto auto auto;
+            border:8px solid rgba(0,0,0,0.1);
+            background: rgb(252,252,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+            border-radius:72px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+<div id="loadingBar">
+    <div class="outerBorder">
+        <div id="text">0%</div>
+        <div id="border">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#f5ae58", "font": {"color": "black"}, "id": "All You Had to Do Was Stay", "label": "All You Had to Do Was Stay", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Bad Blood", "label": "Bad Blood", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Blank Space", "label": "Blank Space", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Clean", "label": "Clean", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "How You Get The Girl", "label": "How You Get The Girl", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "I Know Places", "label": "I Know Places", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "I Wish You Would", "label": "I Wish You Would", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "New Romantics", "label": "New Romantics", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Out of the Woods", "label": "Out of the Woods", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Shake It Off", "label": "Shake It Off", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Style", "label": "Style", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "This Love", "label": "This Love", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Welcome to New York", "label": "Welcome to New York", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Wildest Dreams", "label": "Wildest Dreams", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "Wonderland", "label": "Wonderland", "shape": "dot", "size": 20.0}, {"color": "#f5ae58", "font": {"color": "black"}, "id": "You Are in Love", "label": "You Are in Love", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Breathe (Ft.\u00a0Colbie\u00a0Caillat)", "label": "Breathe (Ft.\u00a0Colbie\u00a0Caillat)", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Change", "label": "Change", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Fearless", "label": "Fearless", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Fifteen", "label": "Fifteen", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Forever \u0026 Always", "label": "Forever \u0026 Always", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Hey Stephen", "label": "Hey Stephen", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Love Story", "label": "Love Story", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "Tell Me Why", "label": "Tell Me Why", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "The Best Day", "label": "The Best Day", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "The Way I Loved You", "label": "The Way I Loved You", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "White Horse", "label": "White Horse", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "You Belong With Me", "label": "You Belong With Me", "shape": "dot", "size": 20.0}, {"color": "#e8f558", "font": {"color": "black"}, "id": "You\u0027re Not Sorry", "label": "You\u0027re Not Sorry", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "22 (Twenty Two)", "label": "22 (Twenty Two)", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "All Too Well", "label": "All Too Well", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Begin Again", "label": "Begin Again", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Come Back... Be Here", "label": "Come Back... Be Here", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Everything Has Changed (Ft.\u00a0Ed\u00a0Sheeran)", "label": "Everything Has Changed (Ft.\u00a0Ed\u00a0Sheeran)", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Girl at Home", "label": "Girl at Home", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Holy Ground", "label": "Holy Ground", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "I Almost Do", "label": "I Almost Do", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "I Knew You Were Trouble", "label": "I Knew You Were Trouble", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Red", "label": "Red", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Sad Beautiful Tragic", "label": "Sad Beautiful Tragic", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Starlight", "label": "Starlight", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "State of Grace", "label": "State of Grace", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Stay Stay Stay", "label": "Stay Stay Stay", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "The Last Time (Ft.\u00a0Gary\u00a0Lightbody)", "label": "The Last Time (Ft.\u00a0Gary\u00a0Lightbody)", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "The Lucky One", "label": "The Lucky One", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "The Moment I Knew", "label": "The Moment I Knew", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "Treacherous", "label": "Treacherous", "shape": "dot", "size": 20.0}, {"color": "#f55858", "font": {"color": "black"}, "id": "We Are Never Ever Getting Back Together", "label": "We Are Never Ever Getting Back Together", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Back To December", "label": "Back To December", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Better Than Revenge", "label": "Better Than Revenge", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Dear John", "label": "Dear John", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Enchanted", "label": "Enchanted", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Haunted", "label": "Haunted", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "If This Was a Movie", "label": "If This Was a Movie", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Innocent", "label": "Innocent", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Last Kiss", "label": "Last Kiss", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Long Live", "label": "Long Live", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Mean", "label": "Mean", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Mine", "label": "Mine", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Never Grow Up", "label": "Never Grow Up", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Ours", "label": "Ours", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Sparks Fly", "label": "Sparks Fly", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Speak Now", "label": "Speak Now", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "Superman", "label": "Superman", "shape": "dot", "size": 20.0}, {"color": "#a958f5", "font": {"color": "black"}, "id": "The Story of Us", "label": "The Story of Us", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "A Perfectly Good Heart", "label": "A Perfectly Good Heart", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "A Place In This World", "label": "A Place In This World", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Cold as You", "label": "Cold as You", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "I\u0027m Only Me When I\u0027m With You", "label": "I\u0027m Only Me When I\u0027m With You", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Invisible", "label": "Invisible", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Mary\u0027s Song (Oh My My My)", "label": "Mary\u0027s Song (Oh My My My)", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Our Song", "label": "Our Song", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Picture To Burn", "label": "Picture To Burn", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Should\u0027ve Said No", "label": "Should\u0027ve Said No", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Stay Beautiful", "label": "Stay Beautiful", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Teardrops On My Guitar", "label": "Teardrops On My Guitar", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "The Outside", "label": "The Outside", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Tied Together With A Smile", "label": "Tied Together With A Smile", "shape": "dot", "size": 20.0}, {"color": "#68f558", "font": {"color": "black"}, "id": "Tim McGraw", "label": "Tim McGraw", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "...Ready for It?", "label": "...Ready for It?", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Call It What You Want", "label": "Call It What You Want", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Dancing With Our Hands Tied", "label": "Dancing With Our Hands Tied", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Delicate", "label": "Delicate", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Don\u0027t Blame Me", "label": "Don\u0027t Blame Me", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Dress", "label": "Dress", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "End Game (Ft.\u00a0Ed\u00a0Sheeran \u0026 Future)", "label": "End Game (Ft.\u00a0Ed\u00a0Sheeran \u0026 Future)", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Getaway Car", "label": "Getaway Car", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Gorgeous", "label": "Gorgeous", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "I Did Something Bad", "label": "I Did Something Bad", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "King of My Heart", "label": "King of My Heart", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "Look What You Made Me Do", "label": "Look What You Made Me Do", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "New Year\u0027s Day", "label": "New Year\u0027s Day", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "So It Goes...", "label": "So It Goes...", "shape": "dot", "size": 20.0}, {"color": "#000000", "font": {"color": "black"}, "id": "This Is Why We Can\u0027t Have Nice Things", "label": "This Is Why We Can\u0027t Have Nice Things", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "I Forgot That You Existed", "label": "I Forgot That You Existed", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Cruel Summer", "label": "Cruel Summer", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Lover", "label": "Lover", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "The Man", "label": "The Man", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "The Archer", "label": "The Archer", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "I Think He Knows", "label": "I Think He Knows", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Miss Americana \u0026 The Heartbreak Prince", "label": "Miss Americana \u0026 The Heartbreak Prince", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Paper Rings", "label": "Paper Rings", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Cornelia Street", "label": "Cornelia Street", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Death By A Thousand Cuts", "label": "Death By A Thousand Cuts", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "London Boy", "label": "London Boy", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Soon You\u0027ll Get Better", "label": "Soon You\u0027ll Get Better", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "False God", "label": "False God", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "You Need To Calm Down", "label": "You Need To Calm Down", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Afterglow", "label": "Afterglow", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "ME!", "label": "ME!", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "It\u0027s Nice To Have A Friend", "label": "It\u0027s Nice To Have A Friend", "shape": "dot", "size": 20.0}, {"color": "#ffa1a1", "font": {"color": "black"}, "id": "Daylight", "label": "Daylight", "shape": "dot", "size": 20.0}]);
+        edges = new vis.DataSet([{"from": "All You Had to Do Was Stay", "to": "Stay Stay Stay", "width": "0.5492269710763529"}, {"from": "Bad Blood", "to": "Blank Space", "width": "0.5350611665411561"}, {"from": "How You Get The Girl", "to": "A Place In This World", "width": "0.5544801980533455"}, {"from": "I Wish You Would", "to": "Invisible", "width": "0.5341264776949182"}, {"from": "Style", "to": "All Too Well", "width": "0.5381572606630048"}, {"from": "This Love", "to": "Back To December", "width": "0.5348291641926767"}, {"from": "You Are in Love", "to": "The Way I Loved You", "width": "0.5392961671546874"}, {"from": "Breathe (Ft.\u00a0Colbie\u00a0Caillat)", "to": "Last Kiss", "width": "0.5380767816172689"}, {"from": "Change", "to": "Teardrops On My Guitar", "width": "0.5343294912611085"}, {"from": "Fearless", "to": "The Best Day", "width": "0.5297818858692288"}, {"from": "Fifteen", "to": "Superman", "width": "0.5387507481656655"}, {"from": "Forever \u0026 Always", "to": "Should\u0027ve Said No", "width": "0.5361658503279593"}, {"from": "Hey Stephen", "to": "The Way I Loved You", "width": "0.5356909424017214"}, {"from": "Love Story", "to": "Speak Now", "width": "0.5368179806058041"}, {"from": "Tell Me Why", "to": "I Think He Knows", "width": "0.5497875502306712"}, {"from": "The Best Day", "to": "Mary\u0027s Song (Oh My My My)", "width": "0.5340473588881628"}, {"from": "You Belong With Me", "to": "I Think He Knows", "width": "0.5457936521898031"}, {"from": "You\u0027re Not Sorry", "to": "Tied Together With A Smile", "width": "0.5337142381502716"}, {"from": "22 (Twenty Two)", "to": "The Lucky One", "width": "0.5335524164858968"}, {"from": "Begin Again", "to": "Tim McGraw", "width": "0.5320437372768094"}, {"from": "Come Back... Be Here", "to": "If This Was a Movie", "width": "0.566515956260863"}, {"from": "Everything Has Changed (Ft.\u00a0Ed\u00a0Sheeran)", "to": "Girl at Home", "width": "0.5404579611041466"}, {"from": "Girl at Home", "to": "I Think He Knows", "width": "0.5484660340786487"}, {"from": "Holy Ground", "to": "Come Back... Be Here", "width": "0.5403251185369671"}, {"from": "I Almost Do", "to": "Tell Me Why", "width": "0.5292953298109978"}, {"from": "I Knew You Were Trouble", "to": "Cold as You", "width": "0.5324409149947147"}, {"from": "Red", "to": "Last Kiss", "width": "0.5382842519923999"}, {"from": "Sad Beautiful Tragic", "to": "Stay Beautiful", "width": "0.5289962709933472"}, {"from": "State of Grace", "to": "Red", "width": "0.5378648544901855"}, {"from": "The Lucky One", "to": "The Moment I Knew", "width": "0.5493856184788142"}, {"from": "We Are Never Ever Getting Back Together", "to": "Back To December", "width": "0.5431044246086626"}, {"from": "Better Than Revenge", "to": "I Think He Knows", "width": "0.5337800711498549"}, {"from": "Dear John", "to": "Miss Americana \u0026 The Heartbreak Prince", "width": "0.536511778853683"}, {"from": "Haunted", "to": "Stay Beautiful", "width": "0.536712044825233"}, {"from": "Mean", "to": "I Think He Knows", "width": "0.5267258828159913"}, {"from": "Mine", "to": "Back To December", "width": "0.533496311508"}, {"from": "Never Grow Up", "to": "The Outside", "width": "0.5293323077135933"}, {"from": "Ours", "to": "Better Than Revenge", "width": "0.5286872436496594"}, {"from": "Sparks Fly", "to": "Invisible", "width": "0.5353077208375472"}, {"from": "Superman", "to": "Back To December", "width": "0.542670582396739"}, {"from": "The Story of Us", "to": "Girl at Home", "width": "0.5313330477483525"}, {"from": "Invisible", "to": "I Think He Knows", "width": "0.5511718528671069"}, {"from": "Should\u0027ve Said No", "to": "If This Was a Movie", "width": "0.547150684347548"}, {"from": "Teardrops On My Guitar", "to": "Tell Me Why", "width": "0.537089199956271"}, {"from": "The Outside", "to": "Invisible", "width": "0.5337981390905202"}, {"from": "Tied Together With A Smile", "to": "Sparks Fly", "width": "0.53394555171036"}, {"from": "...Ready for It?", "to": "You Belong With Me", "width": "0.5312831434129062"}, {"from": "Call It What You Want", "to": "Paper Rings", "width": "0.5319199991515832"}, {"from": "Dancing With Our Hands Tied", "to": "Mine", "width": "0.5271329025814038"}, {"from": "End Game (Ft.\u00a0Ed\u00a0Sheeran \u0026 Future)", "to": "Afterglow", "width": "0.5276530613148792"}, {"from": "I Did Something Bad", "to": "Dancing With Our Hands Tied", "width": "0.5268725337314382"}, {"from": "King of My Heart", "to": "Cruel Summer", "width": "0.5269874490760222"}, {"from": "Cruel Summer", "to": "The Lucky One", "width": "0.5403430589101336"}, {"from": "The Archer", "to": "Invisible", "width": "0.5272805305134644"}, {"from": "Death By A Thousand Cuts", "to": "Blank Space", "width": "0.5274344081496007"}, {"from": "London Boy", "to": "Cruel Summer", "width": "0.5283416628286172"}, {"from": "Soon You\u0027ll Get Better", "to": "Better Than Revenge", "width": "0.5271019670766264"}, {"from": "You Need To Calm Down", "to": "The Moment I Knew", "width": "0.5322003728813235"}, {"from": "Afterglow", "to": "All You Had to Do Was Stay", "width": "0.5335399720654026"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+        network.on("stabilizationProgress", function(params) {
+      		document.getElementById('loadingBar').removeAttribute("style");
+	        var maxWidth = 496;
+	        var minWidth = 20;
+	        var widthFactor = params.iterations/params.total;
+	        var width = Math.max(minWidth,maxWidth * widthFactor);
+
+	        document.getElementById('bar').style.width = width + 'px';
+	        document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+	    });
+	    network.once("stabilizationIterationsDone", function() {
+	        document.getElementById('text').innerHTML = '100%';
+	        document.getElementById('bar').style.width = '496px';
+	        document.getElementById('loadingBar').style.opacity = 0;
+	        // really clean the dom element
+	        setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+	    });
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
