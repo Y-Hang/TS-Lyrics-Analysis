@@ -5,7 +5,7 @@ With AMA's *Artist of the Decade* award, Billboard's *Women of the Decade* award
 This project analyzed the lyrics of 112 songs (including bonus tracks but not voice memos in deluxe versions) in Taylor Swift's 7 studio albums (*self-titled*, *Fearless*, *Speak Now*, *Red*, *1989*, *reputation*, and *Lover*). The lyrics data is compiled from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) (including her first 6 studio albums) and [Azlyrics](https://www.azlyrics.com/) (including her newest album *Lover*).
 
 **Table of Content**\
-[Part I: Datasets Overview & Data Preprocessing](##Part-T-Datasets-Overview--Data-Preprocessing)\
+[Part I: Datasets Overview & Data Preprocessing](#Part-T-Datasets-Overview--Data-Preprocessing)\
 [Part II: Exploratory Data Analysis](#Part-II-Exploratory-Data-Analysis)\
 [Part III: TF-IDF Analysis](#Part-III-TF-IDF-Analysis)\
 [Part IV: LDA with Jensen-Shannon Distance](#Part-IV-LDA-with-Jensen-Shannon-Distance)\
@@ -14,8 +14,9 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 ## Part I: Datasets Overview & Data Preprocessing
 The lyrics data from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) is stored in a clean and structured csv file where each row is a line of a song:
 ![Original_kaggle_file_head](/images/original_kaggle_file_head.png)
-<img style="float: center;" src="/images/original_kaggle_file_head.png">
-<div style="text-align:center"><img src="/images/original_kaggle_file_head.png" /></div>
+
+However, this dataset does not contain the lyrics from Taylor's latest album *Lover*. So I found a lyrics website [Azlyrics](https://www.azlyrics.com/) and used *BeautifulSoup* and *requests* in *Python* to scrape the lyrics of *Lover*. This is what I got:
+![Original_azlyrics_file_head](/images/original_azlyrics_file_head.png)
 
 ## Part II: Exploratory Data Analysis
 ## Part III: TF-IDF Analysis
