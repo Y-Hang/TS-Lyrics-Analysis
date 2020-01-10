@@ -12,20 +12,21 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 [Part V: Word Mover's Distance](#Part-V-Word-Movers-Distance)
 
 ## Part I: Datasets Overview & Data Preprocessing
-The lyrics data was compiled from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) (including her first 6 studio albums) and [Azlyrics](https://www.azlyrics.com/) (including her newest album *Lover*). The [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) data was stored in a clean and structured csv file where each row was a line of a song. But in our analysis, each single song functions as an observation and we only need the *lyrics*, *album title* and *track title* information of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:\
+The lyrics data was compiled from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) (including Taylor's first 6 studio albums) and [Azlyrics](https://www.azlyrics.com/) (including Taylor's latest album *Lover*). The [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) data was stored in a clean and structured csv file where each row was a line of a song. But in our analysis, each single song functions as an observation and we only need the *lyrics*, *album title* and *track title* information of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:\
 ![Grouped_kaggle_file_head](/images/grouped_kaggle_file_head.png)
 
 However, this dataset did not contain the lyrics from Taylor's latest album *Lover*. I found a lyrics website [Azlyrics](https://www.azlyrics.com/) and used *BeautifulSoup* and *requests* in *Python* to scrape the lyrics of album *Lover*. After removing the line breaks (\r, \n) in the scraped data, the lyrics looked like below picture:\
 ![Cleaned_azlyrics_file_head](/images/cleaned_azlyrics_file_head.png)
 
-After appending above two datasets together, we got the dataset for preprocessing. I built a customized `preprocess()` function to:
+Appending above two datasets together, we got the data for preprocessing. I built a customized `preprocess()` function to:
 1. Lowercase all lyrics.
 2. Remove punctuations and special characters.
 3. Count total words of each song.
 4. Remove stopwords (after counting total words).
 5. Stem the lyrics.
-6. Count the number of unique words in each song. 
-The results below were sorted descendingly by total words count:\
+6. Count the number of unique words in each song.\
+
+Applying the `preprocess()` funtion to our data, we got the following data (the results below were sorted descendingly by total words count):\
 ![Preprocessed_final_file_head_sorted](/images/preprocessed_final_file_head_sorted.png)
 - *lyric_all* is the full lyrics without punctuations and special characters
 - *total_count* is the count of total words in a song, or the length of *lyric_all*
