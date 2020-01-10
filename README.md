@@ -13,8 +13,7 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 
 ## Part I: Datasets Overview & Data Preprocessing
 The lyrics data was compiled from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) (including her first 6 studio albums) and [Azlyrics](https://www.azlyrics.com/) (including her newest album *Lover*). The [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) data was stored in a clean and structured csv file where each row was a line of a song:\
-![Original_kaggle_file_head](/images/original_kaggle_file_head.png)
-
+![Original_kaggle_file_head](/images/original_kaggle_file_head.png)\
 In our analysis, each single song functions as an observation and we only need the *lyrics*, *album title* and *track title* information of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:\
 ![Grouped_kaggle_file_head](/images/grouped_kaggle_file_head.png)
 
