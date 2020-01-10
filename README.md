@@ -12,15 +12,15 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 [Part V: Word Mover's Distance](#Part-V-Word-Movers-Distance)
 
 ## Part I: Datasets Overview & Data Preprocessing
-The lyrics data from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) was stored in a clean and structured csv file where each row was a line of a song:
-![Original_kaggle_file_head](/images/original_kaggle_file_head.png)
-In our analysis, each single song functions as an observation and we only need the *lyrics*, *album title* and *track title* information of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:
+The lyrics data from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) was stored in a clean and structured csv file where each row was a line of a song:\
+![Original_kaggle_file_head](/images/original_kaggle_file_head.png)\
+In our analysis, each single song functions as an observation and we only need the *lyrics*, *album title* and *track title* information of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:\
 ![Grouped_kaggle_file_head](/images/grouped_kaggle_file_head.png)
 
-However, this dataset did not contain the lyrics from Taylor's latest album *Lover*. I found a lyrics website [Azlyrics](https://www.azlyrics.com/) and used *BeautifulSoup* and *requests* in *Python* to scrape the lyrics of album *Lover*. After removing the line breaks (\r\n and \n) in the scraped data, the lyrics looked like below picture:
+However, this dataset did not contain the lyrics from Taylor's latest album *Lover*. I found a lyrics website [Azlyrics](https://www.azlyrics.com/) and used *BeautifulSoup* and *requests* in *Python* to scrape the lyrics of album *Lover*. After removing the line breaks (\r\n and \n) in the scraped data, the lyrics looked like below picture:\
 ![Cleaned_azlyrics_file_head](/images/cleaned_azlyrics_file_head.png)
 
-I appended these two datasets together and got the final dataset shown below. 
+I appended these two datasets together and got the final dataset shown below.\
 ![Original_final_file_head](/images/original_kaggle_file_head.png)
 
 ## Part II: Exploratory Data Analysis
