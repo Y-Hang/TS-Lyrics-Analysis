@@ -13,7 +13,7 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 
 ## Part I: Datasets Overview & Data Preprocessing
 The lyrics data from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) was stored in a clean and structured csv file where each row was a line of a song:\
-![Original_kaggle_file_head](/images/original_kaggle_file_head.png)\
+![Original_kaggle_file_head](/images/original_kaggle_file_head.png)
 
 In our analysis, each single song functions as an observation and we only need the *lyrics*, *album title* and *track title* information of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:\
 ![Grouped_kaggle_file_head](/images/grouped_kaggle_file_head.png)
@@ -25,7 +25,10 @@ I appended these two datasets together and got the final dataset shown below.\
 ![Original_final_file_head](/images/grouped_kaggle_file_head.png)
 
 So far, we have collected all wanted lyrics data. So I built a customized `preprocess()` function to lowercase all lyrics, remove punctuations and special characters, count total words of each song, remove stopwords (after counting total words), stem the lyrics, and count the number of unique words in each song. The results below were sorted descendingly by total words count:\
-![Preprocessed_final_file_head_sorted](/images/preprocessed_final_file_head_sorted.png)
+![Preprocessed_final_file_head_sorted](/images/preprocessed_final_file_head_sorted.png)\
+*total_count* is the count of total words in a song
+*unique_count* is the count of unique words in a song
+*uniqueness* is the ratio of *unique_count* over *total_count* to measure the redundancy of lyrics
 
 ## Part II: Exploratory Data Analysis
 ## Part III: TF-IDF Analysis
