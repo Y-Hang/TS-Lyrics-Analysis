@@ -6,10 +6,10 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 
 Table of Content\
 [Part I: Datasets Overview & Data Preprocessing](##Part-T-Datasets-Overview--Data-Preprocessing)\
-[Part II: Exploratory Data Analysis](#Part-II:-Exploratory-Data-Analysis)\
-[Part III: TF-IDF Analysis](#Part-III:-TF-IDF-Analysis)\
-[Part IV: LDA with Jensen-Shannon Distance](#Part IV: LDA with Jensen-Shannon Distance)\
-[Part V: Word Mover's Distance](#Part V: Word Mover's Distance)\
+[Part II: Exploratory Data Analysis](#Part-II-Exploratory-Data-Analysis)\
+[Part III: TF-IDF Analysis](#Part-III-TF-IDF-Analysis)\
+[Part IV: LDA with Jensen-Shannon Distance](#Part-IV-LDA-with-Jensen-Shannon-Distance)\
+[Part V: Word Mover's Distance](#Part-V-Word-Movers-Distance)\
 
 ## Part I: Datasets Overview & Data Preprocessing
 The lyrics data from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) is stored in a clean and structured csv file where each row is a line in a song:
