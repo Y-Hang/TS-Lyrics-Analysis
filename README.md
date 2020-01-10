@@ -26,8 +26,10 @@ I appended these two datasets together and got the final dataset shown below.\
 
 So far, we have collected all wanted lyrics data. So I built a customized `preprocess()` function to lowercase all lyrics, remove punctuations and special characters, count total words of each song, remove stopwords (after counting total words), stem the lyrics, and count the number of unique words in each song. The results below were sorted descendingly by total words count:\
 ![Preprocessed_final_file_head_sorted](/images/preprocessed_final_file_head_sorted.png)\
-*total_count* is the count of total words in a song\
-*unique_count* is the count of unique words in a song\
+*lyric_all* is the full lyrics without punctuations and special characters\
+*total_count* is the count of total words in a song, or the length of *lyric_all*\
+*lyric* is the unique words in *lyric_all*\
+*unique_count* is the count of unique words in a song, or the length of *lyric*\
 *uniqueness* is the ratio of *unique_count* over *total_count* to measure the redundancy of lyrics
 
 ## Part II: Exploratory Data Analysis
