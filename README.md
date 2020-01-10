@@ -24,8 +24,8 @@ However, this dataset did not contain the lyrics from Taylor's latest album *Lov
 I appended these two datasets together and got the final dataset shown below.\
 ![Original_final_file_head](/images/grouped_kaggle_file_head.png)
 
-So far, we have collected all wanted lyrics data and I build a customized `preprocess()` function to lowercase all lyrics, remove punctuations and special characters, count total words of each song, remove stopwords, and stem and lemmatize the lyrics. The results below were sorted descendingly by total words count:\
-![Preproccessed_final_file_head_sorted](/images/preproccessed_final_file_head_sorted.png)
+So far, we have collected all wanted lyrics data. So I built a customized `preprocess()` function to lowercase all lyrics, remove punctuations and special characters, count total words of each song, remove stopwords (after counting total words), stem the lyrics, and count the number of unique words in each song. The results below were sorted descendingly by total words count:\
+![Preprocessed_final_file_head_sorted](/images/preprocessed_final_file_head_sorted.png)
 
 ## Part II: Exploratory Data Analysis
 ## Part III: TF-IDF Analysis
