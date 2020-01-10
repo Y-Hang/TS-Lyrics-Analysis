@@ -15,6 +15,7 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 The lyrics data from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) is stored in a clean and structured csv file where each row is a line of a song:
 ![Original_kaggle_file_head](/images/original_kaggle_file_head.png)
 <img style="float: center;" src="/images/original_kaggle_file_head.png">
+<div style="text-align:center"><img src="/images/original_kaggle_file_head.png" /></div>
 
 ## Part II: Exploratory Data Analysis
 ## Part III: TF-IDF Analysis
