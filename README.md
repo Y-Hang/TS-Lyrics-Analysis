@@ -35,6 +35,7 @@ Applying the `preprocess()` funtion to our data, we got the following output (th
 - *uniqueness* is the ratio of *unique_count* over *total_count* to measure the redundancy of lyrics
 
 ## Part II: Exploratory Data Analysis
+Total words by song-album
 ![Total Words by Song Album](/images/total_words_by_song_album.png)
 ![Uniqueness by Song Album](/images/uniqueness_by_song_album.png)
 
