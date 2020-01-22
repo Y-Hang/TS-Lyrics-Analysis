@@ -1,4 +1,4 @@
-# Taylor Swift Lyrics Anlysis: *How Love Story becomes Bad Blood*
+# Taylor Swift Lyrics Analysis: *How Love Story becomes Bad Blood*
 
 With AMA's *Artist of the Decade* award, Billboard's *Women of the Decade* award, CMA's *Pinnacle Award*, and 2 Grammy's *Album of the Year*, Taylor Swift is undoubtedly one of the most successful artists of the 2010s decade. Interestingly, Taylor debuted as a country singer and pocketed her first Grammy Album of the Year with country album *Fearless*. Then her career gradually shifted towards pop music and she crowned herself a second Grammy Album of the Year with pop ablum *1989*. Thought there have been nonstop discussions and media coverage on the comparison between the *country Taylor* and the *pop Taylor*, the lyrics of her songs can still provide us with a more unmediated and less-touched perspective to observe the evolution of this country-to-pop crossover princess.
 
