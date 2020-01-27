@@ -37,6 +37,9 @@ Applying the `preprocess()` funtion to our data, we got the following output (th
 ## Part II: Exploratory Data Analysis
 Total words by song-album
 ![Total Words by Song Album](/images/total_words_by_song_album.png)
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 ![Uniqueness by Song Album](/images/uniqueness_by_song.html)
 
 ## Part III: TF-IDF Analysis
