@@ -39,10 +39,8 @@ Total words by song-album
 ![Total Words by Song Album](/images/total_words_by_song_album.png)
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<div id="82072c0d-ba8d-4e86-b000-0892be065ca8" style="height: 100%; width: 100%;" class="plotly-graph-div"></div>
-<script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("82072c0d-ba8d-4e86-b000-0892be065ca8", 
-[{"y": ..bunch of data..., "x": ..lots of data.., {"showlegend": true, "title": "the title", "xaxis": {"zeroline": true, "showline": true}, 
-"yaxis": {"zeroline": true, "showline": true, "range": [0, 22.63852380952382]}}, {"linkText": "Export to plot.ly", "showLink": true})</script>
+<div id="cd52e831-399a-403d-9bb2-0c56214b1d38" style="height: 100%; width: 100%;" class="plotly-graph-div"></div>
+<script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("cd52e831-399a-403d-9bb2-0c56214b1d38", [{"type": "pie", "values": [4500, 2500, 1053, 500], "labels": ["Oxygen", "Hydrogen", "Carbon_Dioxide", "Nitrogen"]}], {}, {"linkText": "Export to plot.ly", "showLink": true})</script>
 
 ![Uniqueness by Song Album](/images/uniqueness_by_song.html)
 
