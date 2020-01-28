@@ -39,6 +39,8 @@ Total words by song-album
 ![Total Words by Song Album](/images/total_words_by_song_album.png)
 ![Uniqueness by Song Album](/images/uniqueness_by_song.html)
 
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://y-hang.github.io/NLP-TS_Lyrics_Project/images/uniqueness_by_song.html" height="600" width="1000"></iframe>
+
 ## Part III: TF-IDF Analysis
 ## Part IV: LDA with Jensen-Shannon Distance
 ## Part V: Word Mover's Distance
