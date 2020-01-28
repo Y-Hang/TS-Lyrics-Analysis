@@ -2,7 +2,9 @@
 
 With AMA's *Artist of the Decade* award, Billboard's *Women of the Decade* award, CMA's *Pinnacle Award*, and 2 Grammy's *Album of the Year*, Taylor Swift is undoubtedly one of the most successful artists of the 2010s decade. Interestingly, Taylor debuted as a country singer and pocketed her first Grammy Album of the Year with country album *Fearless*. Then her career gradually shifted towards pop music and she crowned herself a second Grammy Album of the Year with pop ablum *1989*. Thought there have been nonstop discussions and media coverage on the comparison between the *country Taylor* and the *pop Taylor*, the lyrics of her songs can still provide us with a more unmediated and less-touched perspective to observe the evolution of this country-to-pop crossover princess.
 
-This project analyzed the lyrics of 112 songs (including bonus tracks but not voice memos in deluxe versions) from Taylor Swift's 7 studio albums (*self-titled*, *Fearless*, *Speak Now*, *Red*, *1989*, *reputation*, and *Lover*). [Highlight of the goal: text similarity, and methods of this project]
+This project analyzed the lyrics of 112 songs (including bonus tracks but not voice memos in deluxe versions) from Taylor Swift's 7 studio albums (*self-titled*, *Fearless*, *Speak Now*, *Red*, *1989*, *reputation*, and *Lover*). First, I stemmed all the lyrics and explored the trend of Taylor's songs on total words and unique words. Second, I implemented TF-IDF to identify the most representative lyrics/words of each album. Third, to compare the similarity among Taylor's songs in different eras, I employed *LDA with Jensen-Shannon Distance* and *Word Mover's Distance* respectively and visualized the similarity among all 112 songs in terms of lyrics.
+
+[Highlight the results]
 
 **Table of Content**   
 [Part I: Datasets Overview & Data Preprocessing](#part-i-datasets-overview--data-preprocessing)  
