@@ -5,7 +5,7 @@ With AMA's *Artist of the Decade* award, Billboard's *Women of the Decade* award
 This project analyzed the lyrics of 112 songs (including bonus tracks but not voice memos in deluxe versions) from Taylor Swift's 7 studio albums (*self-titled*, *Fearless*, *Speak Now*, *Red*, *1989*, *reputation*, and *Lover*). [Highlight of the goal: text similarity, and methods of this project]
 
 **Table of Content**   
-[Part I: Datasets Overview & Data Preprocessing](#Part-I-Datasets-Overview-Data-Preprocessing)  
+[Part I: Datasets Overview & Data Preprocessing](#Part-I-Datasets-Overview-&-Data-Preprocessing)  
 [Part II: Exploratory Data Analysis](#Part-II-Exploratory-Data-Analysis)  
 [Part III: TF-IDF Analysis](#Part-III-TF-IDF-Analysis)  
 [Part IV: LDA with Jensen-Shannon Distance](#Part-IV-LDA-with-Jensen-Shannon-Distance)  
