@@ -8,7 +8,7 @@ This project analyzed the lyrics of 112 songs (including bonus tracks but not vo
 
 **Table of Content**   
 [Part I: Datasets Overview & Data Preprocessing](#part-i-datasets-overview--data-preprocessing)  
-[Part II: Exploratory Data Analysis](##part-ii-exploratory-data-analysis)  
+[Part II: Exploratory Data Analysis](#part-ii-exploratory-data-analysis)  
 [Part III: TF-IDF Analysis](#part-iii-tf-idf-analysis)  
 [Part IV: LDA with Jensen-Shannon Distance](#part-iv-lda-with-jensen-shannon-distance)  
 [Part V: Word Mover's Distance](#part-v-word-movers-distance)
