@@ -5,7 +5,7 @@ With AMA's *Artist of the Decade* award, Billboard's *Women of the Decade* award
 This project analyzed the lyrics of 112 songs (including bonus tracks but not voice memos in deluxe versions) from Taylor Swift's 7 studio albums (*self-titled*, *Fearless*, *Speak Now*, *Red*, *1989*, *reputation*, and *Lover*). [Highlight of the goal: text similarity, and methods of this project]
 
 **Table of Content**   
-[Part I: Datasets Overview & Data Preprocessing](#Part-I-Datasets-Overview-&-Data-Preprocessing)  
+[Part I: Datasets Overview & Data Preprocessing](#part-i-datasets-overview--data-preprocessing)
 [Part II: Exploratory Data Analysis](#Part-II-Exploratory-Data-Analysis)  
 [Part III: TF-IDF Analysis](#Part-III-TF-IDF-Analysis)  
 [Part IV: LDA with Jensen-Shannon Distance](#Part-IV-LDA-with-Jensen-Shannon-Distance)  
@@ -37,7 +37,7 @@ Applying the `preprocess()` funtion to our data, we got the following output (th
 ## Part II: Exploratory Data Analysis
 Total words by song-album
 
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://y-hang.github.io/NLP-TS_Lyrics_Project/images/uniqueness_by_song.html" height="600" width="1000"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://y-hang.github.io/NLP-TS_Lyrics_Project/images/uniqueness_by_song.html" height="450" width="1000"></iframe>
 
 ## Part III: TF-IDF Analysis
 ## Part IV: LDA with Jensen-Shannon Distance
