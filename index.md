@@ -5,11 +5,11 @@ With AMA's *Artist of the Decade* award, Billboard's *Women of the Decade* award
 This project analyzed the lyrics of 112 songs (including bonus tracks but not voice memos in deluxe versions) from Taylor Swift's 7 studio albums (*self-titled*, *Fearless*, *Speak Now*, *Red*, *1989*, *reputation*, and *Lover*). [Highlight of the goal: text similarity, and methods of this project]
 
 **Table of Content**   
-[Part I: Datasets Overview & Data Preprocessing](#part-i-datasets-overview--data-preprocessing)
-[Part II: Exploratory Data Analysis](#Part-II-Exploratory-Data-Analysis)  
-[Part III: TF-IDF Analysis](#Part-III-TF-IDF-Analysis)  
-[Part IV: LDA with Jensen-Shannon Distance](#Part-IV-LDA-with-Jensen-Shannon-Distance)  
-[Part V: Word Mover's Distance](#Part-V-Word-Movers-Distance)
+[Part I: Datasets Overview & Data Preprocessing](#part-i-datasets-overview--data-preprocessing)  
+[Part II: Exploratory Data Analysis](##part-ii-exploratory-data-analysis)  
+[Part III: TF-IDF Analysis](#part-iii-tf-idf-analysis)  
+[Part IV: LDA with Jensen-Shannon Distance](#part-iv-lda-with-jensen-shannon-distance)  
+[Part V: Word Mover's Distance](#part-v-word-movers-distance)
 
 ## Part I: Datasets Overview & Data Preprocessing
 The lyrics data was compiled from [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) (including Taylor's first 6 studio albums) and [Azlyrics](https://www.azlyrics.com/) (including Taylor's latest album *Lover*). The [Kaggle](https://www.kaggle.com/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums) data was stored in a clean and structured csv file where each row was a line of a song. But in our analysis, each single song functions as an observation, and we only need the *lyrics*, *album title* and *track title* of each song. So I grouped the original data by track title and kept wanted columns. Below is what I got:  
