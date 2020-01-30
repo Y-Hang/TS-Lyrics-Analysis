@@ -39,7 +39,7 @@ Applying the `preprocess()` funtion to our data, we got the following output (th
 ## Part II: Exploratory Data Analysis
 Total words by song-album
 
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://y-hang.github.io/NLP-TS_Lyrics_Project/images/uniqueness_by_song.html" height="450" width="1000"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://y-hang.github.io/TS-Lyrics-Analysis/images/uniqueness_by_song.html" height="450" width="1000"></iframe>
 
 ## Part III: TF-IDF Analysis
 ## Part IV: LDA with Jensen-Shannon Distance
